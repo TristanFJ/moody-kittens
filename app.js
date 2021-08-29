@@ -79,12 +79,16 @@ function catnip(id) {
  * @param {Kitten} kitten
  */
 function setKittenMood(kitten) {
-  
+
 }
 
+let header = document.getElementById("header");
+let welcome = document.getElementById("welcome")
+
 function getStarted() {
-  document.getElementById("welcome").remove();
+  welcome.remove();
   drawKittens();
+  header.classList.remove("hidden")
 }
 
 /**
