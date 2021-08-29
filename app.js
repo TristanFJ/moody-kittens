@@ -19,6 +19,7 @@ function addKitten(event) {
   let catName = form.catName.value
   let id = catName + "-" + generateId()
   let catPic = "https://robohash.org/" + id + "?set=set4";
+  // let affection = getAffection()
 
   newCat = kittens.find(cat => cat.name == catName)
 
@@ -27,6 +28,7 @@ function addKitten(event) {
     id: id,
     name: catName,
     pic: catPic,
+    // affection: affection,
   }
 
   kittens.push(newCat)
@@ -65,6 +67,7 @@ function drawKittens() {
     <div class="d-flex kitten p-3">
     <img src="${newCat.pic}">
     <h2 class="p-1">${newCat.name}</h2>
+    <h2 class="p-1">${newCat.affection}</h2>
     </div>
     <br>
     `
