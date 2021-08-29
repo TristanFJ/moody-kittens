@@ -123,6 +123,11 @@ button.btn-special:hover{
   border-radius: var(--corners);
 }
 
+.no-interact {
+  pointer-events: none;
+  user-select: none;
+}
+
 .shadow{
   filter: drop-shadow(var(--shadow));
 }
