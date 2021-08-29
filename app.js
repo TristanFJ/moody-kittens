@@ -62,9 +62,12 @@ function drawKittens() {
   let template = ""
   kittens.forEach(newCat => {
     template += `
-<img src="${newCat.pic}">
-`
-
+    <div class="d-flex kitten p-3">
+    <img src="${newCat.pic}">
+    <h2 class="p-1">${newCat.name}</h2>
+    </div>
+    <br>
+    `
   })
   document.getElementById("kittens").innerHTML = template
 }
