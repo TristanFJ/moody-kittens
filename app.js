@@ -18,8 +18,21 @@ function addKitten(event) {
   let form = event.target
   let catName = form.catName.value 
   let catId = catName + "-" + generateId()
+  let catPic = (href="https://robohash.org/" + catId + "?set=set4");
 
-  window.open(href="https://robohash.org/" + catId + "?set=set4");
+  newCat = kittens.find(cat => cat.name == catName)
+
+  if (!newCat) {
+    newCat = {
+      id: catId, 
+      name: catName, 
+      pic: catPic,
+    }
+  }
+  kittens.push(newCat)
+  saveKittens()
+  form.reset()
+  drawKittens()
 }
 
 /**
@@ -36,7 +49,10 @@ function saveKittens() {
  * the kittens array to the retrieved array
  */
 function loadKittens() {
-
+let KittensData = JSON.parse(window.localStorage.getItem("kittens"));
+if (KittensData) {
+  kittens = KittensData
+}
 }
 
 /**
@@ -114,3 +130,5 @@ function generateId() {
     Math.floor(Math.random() * 10000000)
   );
 }
+loadKittens()
+drawKittens()
