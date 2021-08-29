@@ -170,6 +170,12 @@ button.btn-special:hover{
   border-color: var(--dark-lighten);
 }
 
+#start {
+  height: max-content;
+  width: max-content;
+  font-size: larger;
+}
+
 .btn-cancel{
   background-color: red;
   border-color: lightcoral;

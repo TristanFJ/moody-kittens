@@ -17,8 +17,8 @@ function addKitten(event) {
   let form = event.target
   let catName = form.catName.value 
   let catId = catName + "-" + generateId()
-  
-  window.open(href="https://robohash.org/" + catId + "?set=set4")
+
+  window.open(href="https://robohash.org/" + catId + "?set=set4");
 }
 
 /**
@@ -26,7 +26,7 @@ function addKitten(event) {
  * Saves the string to localstorage at the key kittens
  */
 function saveKittens() {
-
+  window.localStorage.setItem("kittens", JSON.stringify(kittens));
 }
 
 /**
