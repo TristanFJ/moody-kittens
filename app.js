@@ -16,7 +16,9 @@ function addKitten(event) {
   event.preventDefault()
   let form = event.target
   let catName = form.catName.value 
-  window.open(href="https://robohash.org/" + catName + "?set=set4")
+  let catId = catName + "-" + generateId()
+  
+  window.open(href="https://robohash.org/" + catId + "?set=set4")
 }
 
 /**
