@@ -17,14 +17,14 @@ function addKitten(event) {
   event.preventDefault()
   let form = event.target
   let catName = form.catName.value 
-  let catId = catName + "-" + generateId()
-  let catPic = (href="https://robohash.org/" + catId + "?set=set4");
+  let id = catName + "-" + generateId()
+  let catPic = ("https://robohash.org/" + id + "?set=set4");
 
   newCat = kittens.find(cat => cat.name == catName)
 
   if (!newCat) {
     newCat = {
-      id: catId, 
+      id: id, 
       name: catName, 
       pic: catPic,
     }
@@ -59,7 +59,14 @@ if (KittensData) {
  * Draw all of the kittens to the kittens element
  */
 function drawKittens() {
+let template = ""
+kittens.forEach(newCat => {
+template += `
+<img src="${newCat.catPic}">
+`
 
+})
+document.getElementById("kittens").innerHTML = template
 }
 
 /**
@@ -109,7 +116,7 @@ let welcome = document.getElementById("welcome")
 
 function getStarted() {
   welcome.remove();
-  drawKittens();
+  // drawKittens();
   header.classList.remove("hidden")
 }
 
@@ -131,4 +138,3 @@ function generateId() {
   );
 }
 loadKittens()
-drawKittens()
