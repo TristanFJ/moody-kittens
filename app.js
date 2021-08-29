@@ -22,13 +22,13 @@ function addKitten(event) {
 
   newCat = kittens.find(cat => cat.name == catName)
 
-  if (!newCat) {
-    newCat = {
-      id: id,
-      name: catName,
-      pic: catPic,
-    }
+
+  newCat = {
+    id: id,
+    name: catName,
+    pic: catPic,
   }
+
   kittens.push(newCat)
   saveKittens()
   form.reset()
