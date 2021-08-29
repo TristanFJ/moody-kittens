@@ -16,16 +16,16 @@ let kittens = [];
 function addKitten(event) {
   event.preventDefault()
   let form = event.target
-  let catName = form.catName.value 
+  let catName = form.catName.value
   let id = catName + "-" + generateId()
-  let catPic = ("https://robohash.org/" + id + "?set=set4");
+  let catPic = "https://robohash.org/" + id + "?set=set4";
 
   newCat = kittens.find(cat => cat.name == catName)
 
   if (!newCat) {
     newCat = {
-      id: id, 
-      name: catName, 
+      id: id,
+      name: catName,
       pic: catPic,
     }
   }
@@ -49,24 +49,24 @@ function saveKittens() {
  * the kittens array to the retrieved array
  */
 function loadKittens() {
-let KittensData = JSON.parse(window.localStorage.getItem("kittens"));
-if (KittensData) {
-  kittens = KittensData
-}
+  let KittensData = JSON.parse(window.localStorage.getItem("kittens"));
+  if (KittensData) {
+    kittens = KittensData
+  }
 }
 
 /**
  * Draw all of the kittens to the kittens element
  */
 function drawKittens() {
-let template = ""
-kittens.forEach(newCat => {
-template += `
-<img src="${newCat.catPic}">
+  let template = ""
+  kittens.forEach(newCat => {
+    template += `
+<img src="${newCat.pic}">
 `
 
-})
-document.getElementById("kittens").innerHTML = template
+  })
+  document.getElementById("kittens").innerHTML = template
 }
 
 /**
@@ -116,7 +116,7 @@ let welcome = document.getElementById("welcome")
 
 function getStarted() {
   welcome.remove();
-  // drawKittens();
+  drawKittens();
   header.classList.remove("hidden")
 }
 
