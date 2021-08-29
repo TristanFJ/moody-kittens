@@ -12,6 +12,7 @@ let kittens = [];
  * then add that data to the kittens list.
  * Then reset the form
  */
+
 function addKitten(event) {
   event.preventDefault()
   let form = event.target
