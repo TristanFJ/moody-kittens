@@ -74,7 +74,7 @@ function drawKittens() {
     <img src="${newCat.pic}">
     <h2 class="p-1">Name: ${newCat.name}</h2>
     <h2 class="p-1">Love: ${newCat.affection}</h2>
-    <h2 class="p-1">Love: ${newCat.mood}</h2>
+    <h2 class="p-1">Mood: ${newCat.mood}</h2>
     </div>
     <br>
     `
@@ -125,7 +125,10 @@ drawKittens()
  * @param {Kitten} kitten
  */
 function setKittenMood(newCat) {
-
+if (newCat.affection > 6){newCat.mood = "Happy"}
+else if (newCat.affection <= 5){newCat.mood = "Tolerant"}
+else if (newCat.affection <= 3){newCat.mood = "Angry"}
+else if (newCat.affection <= 0){newCat.mood = "Gone"}
 }
 
 let header = document.getElementById("header");
