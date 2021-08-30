@@ -68,10 +68,10 @@ function drawKittens() {
   let template = ""
   kittens.forEach(newCat => {
     template += `
-    <div class="d-flex kitten p-3">
+    <div class="card kitten">
     <img src="${newCat.pic}">
-    <h2 class="p-1">${newCat.name}</h2>
-    <h2 class="p-1">${newCat.affection}</h2>
+    <h2 class="p-1">Name: ${newCat.name}</h2>
+    <h2 class="p-1">Love: ${newCat.affection}</h2>
     </div>
     <br>
     `
