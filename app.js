@@ -19,7 +19,7 @@ function addKitten(event) {
   let catName = form.catName.value
   let id = catName + "-" + generateId()
   let catPic = "https://robohash.org/" + id + "?set=set4";
-  // let affection = getAffection()
+  let affection = getAffection()
 
   newCat = kittens.find(cat => cat.name == catName)
 
@@ -28,7 +28,7 @@ function addKitten(event) {
     id: id,
     name: catName,
     pic: catPic,
-    // affection: affection,
+    affection: affection,
   }
 
   kittens.push(newCat)
@@ -105,7 +105,11 @@ function pet(id) {
  * @param {string} id
  */
 function catnip(id) {
+let index = kittens.findIndex(cat => cat.id === id);
 
+
+saveKittens()
+drawKittens()
 }
 
 /**
