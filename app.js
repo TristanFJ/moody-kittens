@@ -14,7 +14,7 @@ let kittens = [];
  */
 
 function getAffection() {
-  return Math.floor((Math.random() * 10)); // return random affection 4 through 10
+  return Math.floor((Math.random() * 10));
 }
 
 let affection = getAffection()
@@ -27,19 +27,13 @@ function addKitten(event) {
   newCat = kittens.find(cat => cat.name == catName)
   affection = getAffection()
   let mood = setKittenMood()
-  /*
-  Uncaught TypeError: newCat is undefined
-    setKittenMood http://127.0.0.1:5500/app.js:127
-    addKitten http://127.0.0.1:5500/app.js:28
-    onsubmit http://127.0.0.1:5500/:1
-  */
 
   newCat = {
     id: id,
     name: catName,
     pic: catPic,
     affection: affection,
-    mood: mood, 
+    mood: mood,
   }
 
   kittens.push(newCat)
@@ -117,11 +111,10 @@ function pet(id) {
  * @param {string} id
  */
 function catnip(id) {
-let index = kittens.findIndex(cat => cat.id === id);
+  let index = kittens.findIndex(cat => cat.id === id);
 
-
-saveKittens()
-drawKittens()
+  saveKittens()
+  drawKittens()
 }
 
 /**
@@ -130,10 +123,10 @@ drawKittens()
  * @param {Kitten} kitten
  */
 function setKittenMood() {
-if (affection >= 6){return "Happy"}
-else if (affection <= 5 && affection > 3){return "Tolerant"}
-else if (affection <= 3 && affection > 0){return "Angry"}
-else if (affection <= 0){return "Gone"}
+  if (affection >= 6) { return "Happy" }
+  else if (affection <= 5 && affection > 3) { return "Tolerant" }
+  else if (affection <= 3 && affection > 0) { return "Angry" }
+  else if (affection <= 0) { return "Gone" }
 }
 
 // TODO assign css styling based on kitten mood
