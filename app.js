@@ -24,10 +24,15 @@ function addKitten(event) {
   let id = catName + "-" + generateId()
   let catPic = "https://robohash.org/" + id + "?set=set4";
   let affection = getAffection()
-  let mood = setKittenMood()
-
   newCat = kittens.find(cat => cat.name == catName)
 
+  let mood = setKittenMood()
+  /*
+  Uncaught TypeError: newCat is undefined
+    setKittenMood http://127.0.0.1:5500/app.js:127
+    addKitten http://127.0.0.1:5500/app.js:28
+    onsubmit http://127.0.0.1:5500/:1
+  */
 
   newCat = {
     id: id,
