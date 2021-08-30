@@ -136,6 +136,8 @@ else if (affection <= 3 && affection > 0){return "Angry"}
 else if (affection <= 0){return "Gone"}
 }
 
+// TODO assign css styling based on kitten mood
+
 let header = document.getElementById("header");
 let welcome = document.getElementById("welcome")
 
