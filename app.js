@@ -68,7 +68,7 @@ function drawKittens() {
   let template = ""
   kittens.forEach(newCat => {
     template += `
-    <div class="card kitten">
+    <div class="card kitten no-interact">
     <img src="${newCat.pic}">
     <h2 class="p-1">Name: ${newCat.name}</h2>
     <h2 class="p-1">Love: ${newCat.affection}</h2>
