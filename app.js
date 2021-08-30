@@ -13,6 +13,10 @@ let kittens = [];
  * Then reset the form
  */
 
+function getAffection() {
+  return Math.floor((Math.random() * 10) + 4); // return random affection 4 through 10
+}
+
 function addKitten(event) {
   event.preventDefault()
   let form = event.target
