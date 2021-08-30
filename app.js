@@ -24,6 +24,7 @@ function addKitten(event) {
   let id = catName + "-" + generateId()
   let catPic = "https://robohash.org/" + id + "?set=set4";
   let affection = getAffection()
+  let mood = setKittenMood()
 
   newCat = kittens.find(cat => cat.name == catName)
 
@@ -33,6 +34,7 @@ function addKitten(event) {
     name: catName,
     pic: catPic,
     affection: affection,
+    mood: mood, 
   }
 
   kittens.push(newCat)
@@ -72,6 +74,7 @@ function drawKittens() {
     <img src="${newCat.pic}">
     <h2 class="p-1">Name: ${newCat.name}</h2>
     <h2 class="p-1">Love: ${newCat.affection}</h2>
+    <h2 class="p-1">Love: ${newCat.mood}</h2>
     </div>
     <br>
     `
@@ -121,7 +124,7 @@ drawKittens()
  * Happy > 6, Tolerant <= 5, Angry <= 3, Gone <= 0
  * @param {Kitten} kitten
  */
-function setKittenMood(kitten) {
+function setKittenMood(newCat) {
 
 }
 
