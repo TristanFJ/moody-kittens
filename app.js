@@ -163,3 +163,4 @@ function generateId() {
   );
 }
 loadKittens()
+getStarted() // TODO remove later, disables start screen
