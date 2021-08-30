@@ -14,18 +14,18 @@ let kittens = [];
  */
 
 function getAffection() {
-  return Math.floor((Math.random() * 10) + 4); // return random affection 4 through 10
+  return Math.floor((Math.random() * 10)); // return random affection 4 through 10
 }
 
+let affection = getAffection()
 function addKitten(event) {
   event.preventDefault()
   let form = event.target
   let catName = form.catName.value
   let id = catName + "-" + generateId()
   let catPic = "https://robohash.org/" + id + "?set=set4";
-  let affection = getAffection()
   newCat = kittens.find(cat => cat.name == catName)
-
+  affection = getAffection()
   let mood = setKittenMood()
   /*
   Uncaught TypeError: newCat is undefined
@@ -129,11 +129,11 @@ drawKittens()
  * Happy > 6, Tolerant <= 5, Angry <= 3, Gone <= 0
  * @param {Kitten} kitten
  */
-function setKittenMood(newCat) {
-if (newCat.affection > 6){newCat.mood = "Happy"}
-else if (newCat.affection <= 5){newCat.mood = "Tolerant"}
-else if (newCat.affection <= 3){newCat.mood = "Angry"}
-else if (newCat.affection <= 0){newCat.mood = "Gone"}
+function setKittenMood() {
+if (affection >= 6){return "Happy"}
+else if (affection <= 5 && affection > 3){return "Tolerant"}
+else if (affection <= 3 && affection > 0){return "Angry"}
+else if (affection <= 0){return "Gone"}
 }
 
 let header = document.getElementById("header");
