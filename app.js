@@ -14,7 +14,7 @@ let kittens = [];
  */
 
 function getAffection() {
-  return Math.floor((Math.random() * 10));
+  return Math.floor((Math.random() * 10) + 1);
 }
 
 let affection = getAffection()
