@@ -1,6 +1,6 @@
 const header = document.getElementById("header");
 const welcome = document.getElementById("welcome");
-const kittenElem = document.getElementsByClassName("kitten");
+
 /**
  * Stores the list of kittens
  * @type {Kitten[]}
@@ -17,10 +17,11 @@ let kittens = [];
  */
 
 function getAffection() {
-  return Math.floor((Math.random() * 10) + 1);
+  return Math.floor((Math.random() * 6) + 3);
 }
 
 let affection = getAffection()
+let mood = setKittenMood()
 function addKitten(event) {
   event.preventDefault()
   let form = event.target
@@ -29,7 +30,8 @@ function addKitten(event) {
   let catPic = "https://robohash.org/" + id + "?set=set4";
   newCat = kittens.find(cat => cat.name == catName)
   affection = getAffection()
-  let mood = setKittenMood()
+  mood = setKittenMood()
+  let moodColor = getMoodColor()
 
   newCat = {
     id: id,
@@ -37,6 +39,16 @@ function addKitten(event) {
     pic: catPic,
     affection: affection,
     mood: mood,
+    moodColor: moodColor,
+  }
+
+  function getMoodColor() {
+  
+    if (mood == "Happy") { return "happy" }
+    else if (mood == "Tolerant") { return "tolerant" }
+    else if (mood == "Angry") { return "angry" }
+    else if (mood == "Gone") { return "gone" }
+  
   }
 
   kittens.push(newCat)
@@ -73,7 +85,7 @@ function drawKittens() {
   kittens.forEach(newCat => {
     template += `
     <div class="card no-interact kitten-card">
-    <img class="kitten" src="${newCat.pic}">
+    <img class="kitten ${newCat.moodColor} img" src="${newCat.pic}">
     <h2 class="p-1">Name: ${newCat.name}</h2>
     <h2 class="p-1">Love: ${newCat.affection}</h2>
     <h2 class="p-1">Mood: ${newCat.mood}</h2>
@@ -127,26 +139,12 @@ function catnip(id) {
  */
 function setKittenMood() {
 
-  // let applyHappy = kittenElem.classList.add("happy");
-  // let applyTolerant = kittenElem.classList.add("tolerant");
-  // let applyAngry = kittenElem.classList.add("angry");
-  // let applyGone = kittenElem.classList.add("gone");
-
-  // TODO assign css styling based on kitten mood
-  // if affection x apply class
-
-  // if (affection >= 6) { return "Happy" && applyHappy}
-  // else if (affection <= 5 && affection > 3) { return "Tolerant" && applyTolerant}
-  // else if (affection <= 3 && affection > 0) { return "Angry" && applyAngry}
-  // else if (affection <= 0) { return "Gone" && applyGone}
-
-
   if (affection >= 6) { return "Happy" }
   else if (affection <= 5 && affection > 3) { return "Tolerant" }
   else if (affection <= 3 && affection > 0) { return "Angry" }
   else if (affection <= 0) { return "Gone" }
-
-
+  
+  
 }
 
 
