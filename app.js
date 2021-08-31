@@ -16,11 +16,11 @@ let kittens = [];
  * Then reset the form
  */
 
-function getAffection() {
+function setAffection() {
   return Math.floor((Math.random() * 6) + 3);
 }
 
-let affection = getAffection()
+let affection = setAffection()
 let mood = setKittenMood()
 function addKitten(event) {
   event.preventDefault()
@@ -29,9 +29,9 @@ function addKitten(event) {
   let id = catName + "-" + generateId()
   let catPic = "https://robohash.org/" + id + "?set=set4";
   newCat = kittens.find(cat => cat.name == catName)
-  affection = getAffection()
+  affection = setAffection()
   mood = setKittenMood()
-  let moodColor = getMoodColor()
+  let moodColor = setMoodColor()
 
   newCat = {
     id: id,
@@ -42,7 +42,7 @@ function addKitten(event) {
     moodColor: moodColor,
   }
 
-  function getMoodColor() {
+  function setMoodColor() {
   
     if (mood == "Happy") { return "happy" }
     else if (mood == "Tolerant") { return "tolerant" }
