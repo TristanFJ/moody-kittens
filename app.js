@@ -26,7 +26,7 @@ function addKitten(event) {
   event.preventDefault()
   let form = event.target
   let catName = form.catName.value
-  let id = catName + "-" + generateId()
+  let id = generateId()
   let catPic = "https://robohash.org/" + id + "?set=set4";
   newCat = kittens.find(cat => cat.name == catName)
   affection = setAffection()
@@ -43,12 +43,12 @@ function addKitten(event) {
   }
 
   function setMoodColor() {
-  
+
     if (mood == "Happy") { return "happy" }
     else if (mood == "Tolerant") { return "tolerant" }
     else if (mood == "Angry") { return "angry" }
     else if (mood == "Gone") { return "gone" }
-  
+
   }
 
   kittens.push(newCat)
@@ -77,6 +77,13 @@ function loadKittens() {
   }
 }
 
+function deleteKitten(catId) {
+  let index = kittens.findIndex(newCat => newCat.id === (catId));
+  kittens.splice(index, 1);
+  saveKittens();
+  drawKittens();
+}
+
 /**
  * Draw all of the kittens to the kittens element
  */
@@ -84,11 +91,12 @@ function drawKittens() {
   let template = ""
   kittens.forEach(newCat => {
     template += `
-    <div class="card no-interact kitten-card">
-    <img class="kitten ${newCat.moodColor} img" src="${newCat.pic}">
-    <h2 class="p-1">Name: ${newCat.name}</h2>
-    <h2 class="p-1">Love: ${newCat.affection}</h2>
-    <h2 class="p-1">Mood: ${newCat.mood}</h2>
+    <div class="card no kitten-card">
+    <img class="kitten ${newCat.moodColor} img no-interact" src="${newCat.pic}">
+    <h2 class="p-1 no-interact">Name: ${newCat.name}</h2>
+    <h2 class="p-1 no-interact">Love: ${newCat.affection}</h2>
+    <h2 class="p-1 no-interact">Mood: ${newCat.mood}</h2>
+    <button class="btn-cancel" onclick="deleteKitten(${newCat.id})">DELETE</button>
     </div>
     <br>
     `
@@ -115,10 +123,10 @@ function findKittenById(id) {
  * @param {string} id
  */
 function pet(id) {
-
+  // TODO 
 }
 
-/**
+/** 
  * Find the kitten in the array of kittens
  * Set the kitten's mood to tolerant
  * Set the kitten's affection to 5
@@ -127,7 +135,7 @@ function pet(id) {
  */
 function catnip(id) {
   let index = kittens.findIndex(cat => cat.id === id);
-
+  // TODO 
   saveKittens()
   drawKittens()
 }
@@ -143,13 +151,9 @@ function setKittenMood() {
   else if (affection <= 5 && affection > 3) { return "Tolerant" }
   else if (affection <= 3 && affection > 0) { return "Angry" }
   else if (affection <= 0) { return "Gone" }
-  
-  
+
+
 }
-
-
-
-
 
 function getStarted() {
   welcome.remove();
@@ -169,8 +173,6 @@ function getStarted() {
  */
 function generateId() {
   return (
-    Math.floor(Math.random() * 10000000) +
-    "-" +
     Math.floor(Math.random() * 10000000)
   );
 }
