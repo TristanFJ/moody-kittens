@@ -1,3 +1,7 @@
+const header = document.getElementById("header");
+const welcome = document.getElementById("welcome");
+const kittenElem = document.getElementsByClassName("kitten");
+
 /**
  * Stores the list of kittens
  * @type {Kitten[]}
@@ -70,7 +74,7 @@ function drawKittens() {
   kittens.forEach(newCat => {
     template += `
     <div class="card kitten no-interact">
-    <img src="${newCat.pic}">
+    <img class="kitten" src="${newCat.pic}">
     <h2 class="p-1">Name: ${newCat.name}</h2>
     <h2 class="p-1">Love: ${newCat.affection}</h2>
     <h2 class="p-1">Mood: ${newCat.mood}</h2>
@@ -123,16 +127,32 @@ function catnip(id) {
  * @param {Kitten} kitten
  */
 function setKittenMood() {
+
+  // let applyHappy = kittenElem.classList.add("happy");
+  // let applyTolerant = kittenElem.classList.add("tolerant");
+  // let applyAngry = kittenElem.classList.add("angry");
+  // let applyGone = kittenElem.classList.add("gone");
+
+  // TODO assign css styling based on kitten mood
+  // if affection x apply class
+
+  // if (affection >= 6) { return "Happy" && applyHappy}
+  // else if (affection <= 5 && affection > 3) { return "Tolerant" && applyTolerant}
+  // else if (affection <= 3 && affection > 0) { return "Angry" && applyAngry}
+  // else if (affection <= 0) { return "Gone" && applyGone}
+
+
   if (affection >= 6) { return "Happy" }
   else if (affection <= 5 && affection > 3) { return "Tolerant" }
   else if (affection <= 3 && affection > 0) { return "Angry" }
   else if (affection <= 0) { return "Gone" }
+
+
 }
 
-// TODO assign css styling based on kitten mood
 
-let header = document.getElementById("header");
-let welcome = document.getElementById("welcome")
+
+
 
 function getStarted() {
   welcome.remove();
