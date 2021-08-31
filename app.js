@@ -1,7 +1,6 @@
 const header = document.getElementById("header");
 const welcome = document.getElementById("welcome");
 const kittenElem = document.getElementsByClassName("kitten");
-
 /**
  * Stores the list of kittens
  * @type {Kitten[]}
@@ -73,7 +72,7 @@ function drawKittens() {
   let template = ""
   kittens.forEach(newCat => {
     template += `
-    <div class="card kitten no-interact">
+    <div class="card no-interact kitten-card">
     <img class="kitten" src="${newCat.pic}">
     <h2 class="p-1">Name: ${newCat.name}</h2>
     <h2 class="p-1">Love: ${newCat.affection}</h2>
