@@ -125,14 +125,22 @@ function findKittenById(id) {
  * @param {string} id
  */
 function pet(catId) {
-  let foundCat = (findKittenById(catId))
-  let entropy = Math.random()
-  console.log(entropy)
+  let foundCat = (findKittenById(catId));
+  let entropy = Math.random();
+
+  if (foundCat.affection >= 6) { foundCat.mood = "Happy" }
+  if (foundCat.affection <= 5 && affection > 3) { foundCat.mood = "Tolerant" }
+  if (foundCat.affection <= 3 && affection > 0) { foundCat.mood = "Angry" }
+  if (foundCat.affection <= 0) { foundCat.mood = "Gone" };
+
+  // Don't love the above solution but it seems to work. Might refactor later, need to update color with the affection as well
+
   if (entropy >= 0.7) { foundCat.affection++ }
-  else { foundCat.affection-- }
-  // TODO Update mood + moodColor as affection changes, create "gone" condition when affection reaches zero
+  else { foundCat.affection-- };
+  // TODO Update moodColor as affection changes, create "gone" condition when affection reaches zero
   drawKittens()
   saveKittens()
+
 }
 
 /** 
