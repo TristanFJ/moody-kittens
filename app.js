@@ -42,7 +42,7 @@ function addKitten(event) {
     moodColor: setMoodColor(),
   }
 
-  
+
   kittens.push(newCat)
   saveKittens()
   form.reset()
@@ -102,7 +102,7 @@ function drawKittens() {
     <h2 class="p-1 no-interact">Name: ${newCat.name}</h2>
     <h2 class="p-1 no-interact">Love: ${newCat.affection}</h2>
     <h2 class="p-1 no-interact">Mood: ${newCat.mood}</h2>
-    <button class="button" onclick="pet(${newCat.id})">PET THE KITTY</button>
+    <button id="pet${newCat.id}" class="button" onclick="pet(${newCat.id})">PET THE KITTY</button>
     <button class="btn-cancel" onclick="deleteKitten(${newCat.id})">DELETE</button>
     </div>
     <br>
@@ -120,7 +120,6 @@ function findKittenById(id) {
   return kittens.find(k => k.id == id);
 }
 
-// this is totally beside the point but I don't understand this system, petting the cat is more likely to make it hate you until it runs away. That seems to be neither realistic and/or fun. Writing this comment with a cat on my lap. Going to code it how it asks though
 /**
  * Find the kitten in the array of kittens
  * Generate a random Number
@@ -145,20 +144,19 @@ function pet(catId) {
   }
   if (foundCat.affection <= 0) {
     foundCat.mood = "Gone", foundCat.moodColor = "gone"
-  };
-
-  // Don't love the above solution but it seems to work. Might refactor later, need to update color with the affection as well
+  }
 
   if (entropy >= 0.7) {
     foundCat.affection++
   } else {
     foundCat.affection--
   };
-  // TODO Update moodColor as affection changes, create "gone" condition when affection reaches zero
+  // TODO create "gone" condition when affection reaches zero
   drawKittens()
   saveKittens()
-
 }
+
+
 
 /** 
  * Find the kitten in the array of kittens
