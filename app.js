@@ -151,12 +151,10 @@ function pet(catId) {
   } else {
     foundCat.affection--
   };
-  // TODO create "gone" condition when affection reaches zero
+  // TODO the "gone" mood color is applied, but I need to disable the pet button when it reaches gone. Any solution I've tried disables the button when it's at angry, right before it reaches gone. It's almost like it's the "up to but not including" counting quirk. 
   drawKittens()
   saveKittens()
 }
-
-
 
 /** 
  * Find the kitten in the array of kittens
