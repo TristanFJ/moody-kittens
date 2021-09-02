@@ -43,24 +43,25 @@ function addKitten(event) {
     moodColor: moodColor,
   }
 
-  function setMoodColor() {
-
-    if (mood == "Happy") {
-      return "happy"
-    } else if (mood == "Tolerant") {
-      return "tolerant"
-    } else if (mood == "Angry") {
-      return "angry"
-    } else if (mood == "Gone") {
-      return "gone"
-    }
-
-  }
-
+  
   kittens.push(newCat)
   saveKittens()
   form.reset()
   drawKittens()
+}
+
+function setMoodColor() {
+
+  if (mood == "Happy") {
+    return "happy"
+  } else if (mood == "Tolerant") {
+    return "tolerant"
+  } else if (mood == "Angry") {
+    return "angry"
+  } else if (mood == "Gone") {
+    return "gone"
+  }
+
 }
 
 /**
