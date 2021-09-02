@@ -135,16 +135,16 @@ function pet(catId) {
   let entropy = Math.random();
 
   if (foundCat.affection >= 6) {
-    foundCat.mood = "Happy"
+    foundCat.mood = "Happy", foundCat.moodColor = "happy"
   }
   if (foundCat.affection <= 5 && affection > 3) {
-    foundCat.mood = "Tolerant"
+    foundCat.mood = "Tolerant", foundCat.moodColor = "tolerant"
   }
   if (foundCat.affection <= 3 && affection > 0) {
-    foundCat.mood = "Angry"
+    foundCat.mood = "Angry", foundCat.moodColor = "angry"
   }
   if (foundCat.affection <= 0) {
-    foundCat.mood = "Gone"
+    foundCat.mood = "Gone", foundCat.moodColor = "gone"
   };
 
   // Don't love the above solution but it seems to work. Might refactor later, need to update color with the affection as well
