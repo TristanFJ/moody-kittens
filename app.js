@@ -32,7 +32,6 @@ function addKitten(event) {
   newCat = kittens.find(cat => cat.name == catName)
   affection = setAffection()
   mood = setKittenMood()
-  let moodColor = setMoodColor()
 
   newCat = {
     id: id,
@@ -40,7 +39,7 @@ function addKitten(event) {
     pic: catPic,
     affection: affection,
     mood: mood,
-    moodColor: moodColor,
+    moodColor: setMoodColor(),
   }
 
   
@@ -52,13 +51,13 @@ function addKitten(event) {
 
 function setMoodColor() {
 
-  if (mood == "Happy") {
+  if (mood === "Happy") {
     return "happy"
-  } else if (mood == "Tolerant") {
+  } else if (mood === "Tolerant") {
     return "tolerant"
-  } else if (mood == "Angry") {
+  } else if (mood === "Angry") {
     return "angry"
-  } else if (mood == "Gone") {
+  } else if (mood === "Gone") {
     return "gone"
   }
 
