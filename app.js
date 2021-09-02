@@ -22,6 +22,7 @@ function setAffection() {
 
 let affection = setAffection()
 let mood = setKittenMood()
+
 function addKitten(event) {
   event.preventDefault()
   let form = event.target
@@ -44,10 +45,15 @@ function addKitten(event) {
 
   function setMoodColor() {
 
-    if (mood == "Happy") { return "happy" }
-    else if (mood == "Tolerant") { return "tolerant" }
-    else if (mood == "Angry") { return "angry" }
-    else if (mood == "Gone") { return "gone" }
+    if (mood == "Happy") {
+      return "happy"
+    } else if (mood == "Tolerant") {
+      return "tolerant"
+    } else if (mood == "Angry") {
+      return "angry"
+    } else if (mood == "Gone") {
+      return "gone"
+    }
 
   }
 
@@ -128,15 +134,26 @@ function pet(catId) {
   let foundCat = (findKittenById(catId));
   let entropy = Math.random();
 
-  if (foundCat.affection >= 6) { foundCat.mood = "Happy" }
-  if (foundCat.affection <= 5 && affection > 3) { foundCat.mood = "Tolerant" }
-  if (foundCat.affection <= 3 && affection > 0) { foundCat.mood = "Angry" }
-  if (foundCat.affection <= 0) { foundCat.mood = "Gone" };
+  if (foundCat.affection >= 6) {
+    foundCat.mood = "Happy"
+  }
+  if (foundCat.affection <= 5 && affection > 3) {
+    foundCat.mood = "Tolerant"
+  }
+  if (foundCat.affection <= 3 && affection > 0) {
+    foundCat.mood = "Angry"
+  }
+  if (foundCat.affection <= 0) {
+    foundCat.mood = "Gone"
+  };
 
   // Don't love the above solution but it seems to work. Might refactor later, need to update color with the affection as well
 
-  if (entropy >= 0.7) { foundCat.affection++ }
-  else { foundCat.affection-- };
+  if (entropy >= 0.7) {
+    foundCat.affection++
+  } else {
+    foundCat.affection--
+  };
   // TODO Update moodColor as affection changes, create "gone" condition when affection reaches zero
   drawKittens()
   saveKittens()
@@ -164,10 +181,15 @@ function catnip(id) {
  */
 function setKittenMood() {
 
-  if (affection >= 6) { return "Happy" }
-  else if (affection <= 5 && affection > 3) { return "Tolerant" }
-  else if (affection <= 3 && affection > 0) { return "Angry" }
-  else if (affection <= 0) { return "Gone" }
+  if (affection >= 6) {
+    return "Happy"
+  } else if (affection <= 5 && affection > 3) {
+    return "Tolerant"
+  } else if (affection <= 3 && affection > 0) {
+    return "Angry"
+  } else if (affection <= 0) {
+    return "Gone"
+  }
 
 
 }
