@@ -133,6 +133,7 @@ function findKittenById(id) {
 function pet(catId) {
   let foundCat = (findKittenById(catId));
   let entropy = Math.random();
+  drawKittens()
   
   if (entropy >= 0.7) {
     foundCat.affection++
@@ -149,12 +150,16 @@ function pet(catId) {
   else if (foundCat.affection <= 3 && foundCat.affection > 0) {
     foundCat.mood = "Angry", foundCat.moodColor = "angry"
   }
-  else { foundCat.mood = "Gone", foundCat.moodColor = "gone", foundCat.affection = "" }
+  else if (foundCat.affection === 0) 
+  { foundCat.mood = "Gone", foundCat.moodColor = "gone", foundCat.affection = "0", document.getElementById("pet" + catId).remove(), document.getElementById("catnip" + catId).remove()
+  }
+
+  // 
 
   // TODO the "gone" mood color is applied, but I need to disable the pet button when it reaches gone. Any solution I've tried disables the button when it's at angry, right before it reaches gone. It's almost like it's the "up to but not including" counting quirk. 
 
+  // I think I can't disable the pet button because it's drawing the kitten with the pet button, even if I remove it. Do I need a drawGoneKitten() ?
 
-  drawKittens()
   saveKittens()
 }
 
