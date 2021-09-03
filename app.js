@@ -40,6 +40,8 @@ function addKitten(event) {
   affection = setAffection()
   mood = setKittenMood()
 
+  if (!newCat) {
+
   newCat = {
     id: id,
     name: catName,
@@ -48,12 +50,13 @@ function addKitten(event) {
     mood: mood,
     moodColor: setMoodColor(),
   }
-
-
+  
   kittens.push(newCat)
   saveKittens()
   form.reset()
   drawKittens()
+}
+else (alert("Choose a different name"))
 }
 
 function setMoodColor() {
@@ -158,12 +161,6 @@ function pet(catId) {
     drawGoneKitten(foundCat)
   }
 
-  // 
-
-  // TODO the "gone" mood color is applied, but I need to disable the pet button when it reaches gone. Any solution I've tried disables the button when it's at angry, right before it reaches gone. It's almost like it's the "up to but not including" counting quirk. 
-
-  // I think I can't disable the pet button because it's drawing the kitten with the pet button, even if I remove it. Do I need a drawGoneKitten() ?
-
   saveKittens()
 }
 
@@ -196,9 +193,6 @@ function catnip(catId) {
   let foundCat = (findKittenById(catId));
 
   foundCat.affection = 5, foundCat.mood = "Tolerant", foundCat.moodColor = "tolerant", saveKittens(), drawKittens();
-
-
-  // TODO 
 
 }
 
