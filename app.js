@@ -152,13 +152,13 @@ function pet(catId) {
   };
 
   if (foundCat.affection >= 6) {
-    foundCat.mood = "Happy", foundCat.moodColor = "happy"
+    foundCat.mood = "Happy"; foundCat.moodColor = "happy"
   } else if (foundCat.affection <= 5 && foundCat.affection > 3) {
-    foundCat.mood = "Tolerant", foundCat.moodColor = "tolerant"
+    foundCat.mood = "Tolerant"; foundCat.moodColor = "tolerant"
   } else if (foundCat.affection <= 3 && foundCat.affection > 0) {
-    foundCat.mood = "Angry", foundCat.moodColor = "angry"
+    foundCat.mood = "Angry"; foundCat.moodColor = "angry"
   } else {
-    drawGoneKitten(foundCat)
+    foundCat.mood = "Gone"; foundCat.moodColor = "gone"; saveKittens(); drawKittens();
   }
 
   saveKittens()
@@ -166,24 +166,6 @@ function pet(catId) {
 
 // TODO bug: drawGoneKitten() makes every cat run away. 
 // bug: gone cats aren't persistent through page refresh. 
-
-function drawGoneKitten() {
-  let template = ""
-
-  kittens.forEach(goneCat => {
-    template += `
-    <div class="kitten-card card">
-    <img class="kitten gone img no-interact" src="${goneCat.pic}">
-    <h2 class="p-1 no-interact">Name: ${goneCat.name}</h2>
-    <h2 class="p-1 no-interact">Cat ran away</h2>
-    <button class="btn-cancel" onclick="deleteKitten(${goneCat.id})">DELETE</button>
-    </div>
-    <br>
-    `
-  })
-  document.getElementById("kittens").innerHTML = template
-
-}
 
 /** 
  * Find the kitten in the array of kittens
