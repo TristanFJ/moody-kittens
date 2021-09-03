@@ -157,8 +157,8 @@ function pet(catId) {
   else if (foundCat.affection <= 3 && foundCat.affection > 0) {
     foundCat.mood = "Angry", foundCat.moodColor = "angry"
   }
-  else if (foundCat.affection === 0) 
-  { foundCat.mood = "Gone", foundCat.moodColor = "gone", foundCat.affection = "0", document.getElementById("pet" + catId).remove(), document.getElementById("catnip" + catId).remove()
+  else { 
+    drawGoneKitten(foundCat)
   }
 
   // 
@@ -170,6 +170,24 @@ function pet(catId) {
   saveKittens()
 }
 
+function drawGoneKitten() {
+  let template = ""
+
+  kittens.forEach(goneCat => {
+    template += `
+    <div class="kitten-card card">
+    <img class="kitten gone img no-interact" src="${goneCat.pic}">
+    <h2 class="p-1 no-interact">Name: ${goneCat.name}</h2>
+    <h2 class="p-1 no-interact">Cat ran away</h2>
+    <button class="btn-cancel" onclick="deleteKitten(${goneCat.id})">DELETE</button>
+    </div>
+    <br>
+    `
+  })
+  document.getElementById("kittens").innerHTML = template
+
+}
+
 /** 
  * Find the kitten in the array of kittens
  * Set the kitten's mood to tolerant
@@ -179,9 +197,8 @@ function pet(catId) {
  */
 function catnip(catId) {
   let foundCat = (findKittenById(catId));
-  let nipBtn = document.getElementById("catnip" + catId)
 
-  foundCat.affection = 5, foundCat.mood = "Tolerant", foundCat.moodColor = "tolerant", saveKittens(), drawKittens(), nipBtn.classList.add("hidden");
+  foundCat.affection = 5, foundCat.mood = "Tolerant", foundCat.moodColor = "tolerant", saveKittens(), drawKittens();
 
 
   // TODO 
