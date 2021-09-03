@@ -136,10 +136,10 @@ function pet(catId) {
   if (foundCat.affection >= 6) {
     foundCat.mood = "Happy", foundCat.moodColor = "happy"
   }
-  if (foundCat.affection <= 5 && affection > 3) {
+  if (foundCat.affection <= 5 && foundCat.affection > 3) {
     foundCat.mood = "Tolerant", foundCat.moodColor = "tolerant"
   }
-  if (foundCat.affection <= 3 && affection > 0) {
+  if (foundCat.affection <= 3 && foundCat.affection > 0) {
     foundCat.mood = "Angry", foundCat.moodColor = "angry"
   }
   if (foundCat.affection <= 0) {
