@@ -152,6 +152,10 @@ function pet(catId) {
     foundCat.affection--
   };
   // TODO the "gone" mood color is applied, but I need to disable the pet button when it reaches gone. Any solution I've tried disables the button when it's at angry, right before it reaches gone. It's almost like it's the "up to but not including" counting quirk. 
+
+  // It also seems like my affection conditions aren't as accurate as I thought. 
+
+
   drawKittens()
   saveKittens()
 }
