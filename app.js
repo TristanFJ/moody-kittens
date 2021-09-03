@@ -165,6 +165,7 @@ function pet(catId) {
 }
 
 // TODO bug: drawGoneKitten() makes every cat run away. 
+// bug: gone cats aren't persistent through page refresh. 
 
 function drawGoneKitten() {
   let template = ""
