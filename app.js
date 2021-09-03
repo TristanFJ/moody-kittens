@@ -1,6 +1,12 @@
 const header = document.getElementById("header");
 const welcome = document.getElementById("welcome");
-
+/**
+delete kitten array */
+function nuke() {
+  kittens = [];
+  saveKittens();
+  getStarted();
+}
 /**
  * Stores the list of kittens
  * @type {Kitten[]}
@@ -15,6 +21,7 @@ let kittens = [];
  * then add that data to the kittens list.
  * Then reset the form
  */
+
 
 function setAffection() {
   return Math.floor((Math.random() * 6) + 3);
