@@ -164,6 +164,8 @@ function pet(catId) {
   saveKittens()
 }
 
+// TODO bug: drawGoneKitten() makes every cat run away. 
+
 function drawGoneKitten() {
   let template = ""
 
