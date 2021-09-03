@@ -141,7 +141,7 @@ function pet(catId) {
   let foundCat = (findKittenById(catId));
   let entropy = Math.random();
   drawKittens()
-  
+
   if (entropy >= 0.7) {
     foundCat.affection++
   } else {
@@ -150,14 +150,11 @@ function pet(catId) {
 
   if (foundCat.affection >= 6) {
     foundCat.mood = "Happy", foundCat.moodColor = "happy"
-  }
-  else if (foundCat.affection <= 5 && foundCat.affection > 3) {
+  } else if (foundCat.affection <= 5 && foundCat.affection > 3) {
     foundCat.mood = "Tolerant", foundCat.moodColor = "tolerant"
-  }
-  else if (foundCat.affection <= 3 && foundCat.affection > 0) {
+  } else if (foundCat.affection <= 3 && foundCat.affection > 0) {
     foundCat.mood = "Angry", foundCat.moodColor = "angry"
-  }
-  else { 
+  } else {
     drawGoneKitten(foundCat)
   }
 
