@@ -133,28 +133,25 @@ function findKittenById(id) {
 function pet(catId) {
   let foundCat = (findKittenById(catId));
   let entropy = Math.random();
-
-  if (foundCat.affection >= 6) {
-    foundCat.mood = "Happy", foundCat.moodColor = "happy"
-  }
-  if (foundCat.affection <= 5 && foundCat.affection > 3) {
-    foundCat.mood = "Tolerant", foundCat.moodColor = "tolerant"
-  }
-  if (foundCat.affection <= 3 && foundCat.affection > 0) {
-    foundCat.mood = "Angry", foundCat.moodColor = "angry"
-  }
-  if (foundCat.affection <= 0) {
-    foundCat.mood = "Gone", foundCat.moodColor = "gone"
-  }
-
+  
   if (entropy >= 0.7) {
     foundCat.affection++
   } else {
     foundCat.affection--
   };
-  // TODO the "gone" mood color is applied, but I need to disable the pet button when it reaches gone. Any solution I've tried disables the button when it's at angry, right before it reaches gone. It's almost like it's the "up to but not including" counting quirk. 
 
-  // It also seems like my affection conditions aren't as accurate as I thought. 
+  if (foundCat.affection >= 6) {
+    foundCat.mood = "Happy", foundCat.moodColor = "happy"
+  }
+  else if (foundCat.affection <= 5 && foundCat.affection > 3) {
+    foundCat.mood = "Tolerant", foundCat.moodColor = "tolerant"
+  }
+  else if (foundCat.affection <= 3 && foundCat.affection > 0) {
+    foundCat.mood = "Angry", foundCat.moodColor = "angry"
+  }
+  else { foundCat.mood = "Gone", foundCat.moodColor = "gone", foundCat.affection = "" }
+
+  // TODO the "gone" mood color is applied, but I need to disable the pet button when it reaches gone. Any solution I've tried disables the button when it's at angry, right before it reaches gone. It's almost like it's the "up to but not including" counting quirk. 
 
 
   drawKittens()
