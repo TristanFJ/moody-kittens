@@ -97,12 +97,13 @@ function drawKittens() {
   let template = ""
   kittens.forEach(newCat => {
     template += `
-    <div class="card no kitten-card">
+    <div class="kitten-card card">
     <img class="kitten ${newCat.moodColor} img no-interact" src="${newCat.pic}">
     <h2 class="p-1 no-interact">Name: ${newCat.name}</h2>
     <h2 class="p-1 no-interact">Love: ${newCat.affection}</h2>
     <h2 class="p-1 no-interact">Mood: ${newCat.mood}</h2>
     <button id="pet${newCat.id}" class="button" onclick="pet(${newCat.id})">PET THE KITTY</button>
+    <button id="catnip${newCat.id}" class="button" onclick="catnip(${newCat.id})">CATNIP</button>
     <button class="btn-cancel" onclick="deleteKitten(${newCat.id})">DELETE</button>
     </div>
     <br>
@@ -167,11 +168,15 @@ function pet(catId) {
  * save the kittens
  * @param {string} id
  */
-function catnip(id) {
-  let index = kittens.findIndex(cat => cat.id === id);
+function catnip(catId) {
+  let foundCat = (findKittenById(catId));
+  let nipBtn = document.getElementById("catnip" + catId)
+
+  foundCat.affection = 5, foundCat.mood = "Tolerant", foundCat.moodColor = "tolerant", saveKittens(), drawKittens(), nipBtn.classList.add("hidden");
+
+
   // TODO 
-  saveKittens()
-  drawKittens()
+
 }
 
 /**
