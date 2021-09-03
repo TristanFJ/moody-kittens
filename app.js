@@ -107,14 +107,13 @@ function drawKittens() {
   let template = ""
   kittens.forEach(newCat => {
     template += `
-    <div class="kitten-card card">
+    <div class="${newCat.moodColor} kitten-card card">
     <img class="kitten ${newCat.moodColor} img no-interact" src="${newCat.pic}">
     <h2 class="p-1 no-interact">Name: ${newCat.name}</h2>
     <h2 class="p-1 no-interact">Love: ${newCat.affection}</h2>
     <h2 class="p-1 no-interact">Mood: ${newCat.mood}</h2>
     <button id="pet${newCat.id}" class="button" onclick="pet(${newCat.id})">PET THE KITTY</button>
     <button id="catnip${newCat.id}" class="button" onclick="catnip(${newCat.id})">CATNIP</button>
-    <button class="btn-cancel" onclick="deleteKitten(${newCat.id})">DELETE</button>
     </div>
     <br>
     `
@@ -144,6 +143,7 @@ function pet(catId) {
   let foundCat = (findKittenById(catId));
   let entropy = Math.random();
   drawKittens()
+  saveKittens()
 
   if (entropy >= 0.7) {
     foundCat.affection++
@@ -155,17 +155,13 @@ function pet(catId) {
     foundCat.mood = "Happy"; foundCat.moodColor = "happy"
   } else if (foundCat.affection <= 5 && foundCat.affection > 3) {
     foundCat.mood = "Tolerant"; foundCat.moodColor = "tolerant"
-  } else if (foundCat.affection <= 3 && foundCat.affection > 0) {
+  } else if (foundCat.affection <= 3 && foundCat.affection >= 0) {
     foundCat.mood = "Angry"; foundCat.moodColor = "angry"
   } else {
-    foundCat.mood = "Gone"; foundCat.moodColor = "gone"; saveKittens(); drawKittens();
+    foundCat.mood = "Gone"; foundCat.moodColor = "gone"; drawKittens();
   }
 
-  saveKittens()
 }
-
-// TODO bug: drawGoneKitten() makes every cat run away. 
-// bug: gone cats aren't persistent through page refresh. 
 
 /** 
  * Find the kitten in the array of kittens
@@ -223,4 +219,3 @@ function generateId() {
   );
 }
 loadKittens()
-getStarted() // TODO remove later, disables start screen

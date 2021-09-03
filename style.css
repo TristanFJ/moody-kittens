@@ -168,11 +168,13 @@ button.btn-special:hover {
 
 .kitten.gone {
   filter: drop-shadow(2px 4px 6px #ff0000) contrast(0);
-}
-
-.kitten.gone {
   color: var(--danger);
   pointer-events: none;
+}
+
+.gone {
+  pointer-events: none;
+  user-select: none;
 }
 
 .bg-dark {
