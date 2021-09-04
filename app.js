@@ -42,21 +42,20 @@ function addKitten(event) {
 
   if (!newCat) {
 
-  newCat = {
-    id: id,
-    name: catName,
-    pic: catPic,
-    affection: affection,
-    mood: mood,
-    moodColor: setMoodColor(),
-  }
-  
-  kittens.push(newCat)
-  saveKittens()
-  form.reset()
-  drawKittens()
-}
-else (alert("Choose a different name"))
+    newCat = {
+      id: id,
+      name: catName,
+      pic: catPic,
+      affection: affection,
+      mood: mood,
+      moodColor: setMoodColor(),
+    }
+
+    kittens.push(newCat)
+    saveKittens()
+    form.reset()
+    drawKittens()
+  } else(alert("Choose a different name"))
 }
 
 function setMoodColor() {
@@ -152,13 +151,18 @@ function pet(catId) {
   };
 
   if (foundCat.affection >= 6) {
-    foundCat.mood = "Happy"; foundCat.moodColor = "happy"
+    foundCat.mood = "Happy";
+    foundCat.moodColor = "happy"
   } else if (foundCat.affection <= 5 && foundCat.affection > 3) {
-    foundCat.mood = "Tolerant"; foundCat.moodColor = "tolerant"
+    foundCat.mood = "Tolerant";
+    foundCat.moodColor = "tolerant"
   } else if (foundCat.affection <= 3 && foundCat.affection >= 0) {
-    foundCat.mood = "Angry"; foundCat.moodColor = "angry"
+    foundCat.mood = "Angry";
+    foundCat.moodColor = "angry"
   } else {
-    foundCat.mood = "Gone"; foundCat.moodColor = "gone"; drawKittens();
+    foundCat.mood = "Gone";
+    foundCat.moodColor = "gone";
+    drawKittens();
   }
 
 }
@@ -173,7 +177,11 @@ function pet(catId) {
 function catnip(catId) {
   let foundCat = (findKittenById(catId));
 
-  foundCat.affection = 5, foundCat.mood = "Tolerant", foundCat.moodColor = "tolerant", saveKittens(), drawKittens();
+  foundCat.affection = 5;
+  foundCat.mood = "Tolerant";
+  foundCat.moodColor = "tolerant";
+  saveKittens();
+  drawKittens();
 
 }
 
