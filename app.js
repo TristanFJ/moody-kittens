@@ -45,7 +45,6 @@ function addKitten(event) {
   mood = setKittenMood()
 
   if (!newCat) {
-
     newCat = {
       id: id,
       name: catName,
@@ -67,7 +66,6 @@ function addKitten(event) {
  * @returns {string} based on the cat's mood value
  */
 function setMoodColor() {
-
   if (mood === "Happy") {
     return "happy"
   } else if (mood === "Tolerant") {
@@ -77,7 +75,6 @@ function setMoodColor() {
   } else if (mood === "Gone") {
     return "gone"
   }
-
 }
 
 /**
@@ -176,8 +173,8 @@ function pet(catId) {
     foundCat.mood = "Gone";
     foundCat.moodColor = "gone";
   }
-  drawKittens(); saveKittens();
-
+  drawKittens();
+  saveKittens();
 }
 
 /** 
@@ -195,7 +192,6 @@ function catnip(catId) {
   foundCat.moodColor = "tolerant";
   saveKittens();
   drawKittens();
-
 }
 
 /**
@@ -204,7 +200,6 @@ function catnip(catId) {
  * @param {Kitten} kitten
  */
 function setKittenMood() {
-
   if (affection >= 6) {
     return "Happy"
   } else if (affection <= 5 && affection > 3) {
@@ -214,8 +209,6 @@ function setKittenMood() {
   } else if (affection <= 0) {
     return "Gone"
   }
-
-
 }
 
 /**
