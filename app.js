@@ -1,5 +1,5 @@
-// TODO fix comments
-// TODO Save "gone kitten state" between refresh
+// TODO Save "gone kitten state" between refresh, there's a bug where you can refresh and give catnip to revive a gone cat
+// TODO the first "pet the kitty" click doesn't register. If you can't find why, a workaround may be to call the pet click after cat creation. 
 // TODO responsive "how high can your cat's love go" text, smaller text for smaller window (low priority)
 
 const header = document.getElementById("header");
@@ -11,13 +11,17 @@ function nuke() {
   saveKittens();
   getStarted();
 }
+
 /**
  * Stores the list of kittens
  * @type {Kitten[]}
  */
 let kittens = [];
 
-
+/**
+ * 
+ * @returns entropy to determine cat's affection
+ */
 function setAffection() {
   return Math.floor((Math.random() * 6) + 3);
 }
@@ -62,6 +66,10 @@ function addKitten(event) {
   } else(alert("Choose a different name"))
 }
 
+/**
+ * 
+ * @returns {string} based on the cat's mood value
+ */
 function setMoodColor() {
 
   if (mood === "Happy") {
@@ -96,6 +104,11 @@ function loadKittens() {
   }
 }
 
+/**
+ * Finds index of cat by id, splices that cat from the index,
+ * saves the new state and draws data
+ * @param {number} catId 
+ */
 function deleteKitten(catId) {
   let index = kittens.findIndex(newCat => newCat.id === (catId));
   kittens.splice(index, 1);
@@ -209,6 +222,10 @@ function setKittenMood() {
 
 }
 
+/**
+ * The button on the welcome banner which
+ * brings you to the main application
+ */
 function getStarted() {
   welcome.remove();
   drawKittens();
