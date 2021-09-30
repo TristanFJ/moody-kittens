@@ -1,3 +1,7 @@
+// TODO fix comments
+// TODO Save "gone kitten state" between refresh
+// TODO responsive "how high can your cat's love go" text, smaller text for smaller window (low priority)
+
 const header = document.getElementById("header");
 const welcome = document.getElementById("welcome");
 /**
@@ -12,15 +16,6 @@ function nuke() {
  * @type {Kitten[]}
  */
 let kittens = [];
-/**
- * Called when submitting the new Kitten Form
- * This method will pull data from the form
- * use the provided function to give the data an id
- * you can use robohash for images
- * https://robohash.org/<INSERTCATNAMEHERE>?set=set4
- * then add that data to the kittens list.
- * Then reset the form
- */
 
 
 function setAffection() {
@@ -30,6 +25,15 @@ function setAffection() {
 let affection = setAffection()
 let mood = setKittenMood()
 
+/**
+ * Called when submitting the new Kitten Form
+ * This method will pull data from the form
+ * use the provided function to give the data an id
+ * you can use robohash for images
+ * https://robohash.org/<INSERTCATNAMEHERE>?set=set4
+ * then add that data to the kittens list.
+ * Then reset the form
+ */
 function addKitten(event) {
   event.preventDefault()
   let form = event.target
