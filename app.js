@@ -1,5 +1,3 @@
-// TODO responsive "how high can your cat's love go" text, smaller text for smaller window (low priority)
-
 const header = document.getElementById("header");
 const welcome = document.getElementById("welcome");
 /**
