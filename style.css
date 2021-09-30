@@ -38,9 +38,9 @@ main {
   min-height: calc(95vh - (120px + 80px));
 }
 
-@media all and (max-width: 877px) {
+@media all and (max-width: 880px) {
   #banner {
-    font-size: 15pt;
+    font-size: 15.5pt;
   }
 }
 
