@@ -1,5 +1,3 @@
-// TODO Save "gone kitten state" between refresh, there's a bug where you can refresh and give catnip to revive a gone cat
-// TODO the first "pet the kitty" click doesn't register. If you can't find why, a workaround may be to call the pet click after cat creation. 
 // TODO responsive "how high can your cat's love go" text, smaller text for smaller window (low priority)
 
 const header = document.getElementById("header");
@@ -179,8 +177,8 @@ function pet(catId) {
   } else {
     foundCat.mood = "Gone";
     foundCat.moodColor = "gone";
-    drawKittens();
   }
+  drawKittens(); saveKittens();
 
 }
 
